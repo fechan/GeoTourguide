@@ -27,6 +27,11 @@
         hoodCache[neighborhood] = extractLinks(html).filter(linksToSite);
         createSiteList(hoodCache[neighborhood], neighborhood);
       }
+      xhr.onerror = function() {
+        siteList.innerHTML = "";
+        siteList.textContent = "Failed to get site list. Oocities archive or CORS Anywhere proxy " +
+          "might be down. Please try again later.";
+      }
       xhr.open("GET", `${CORSANYWHERE}/${OOCITIES}/${neighborhood}`);
       xhr.responseType = "document";
       xhr.send();
