@@ -1,7 +1,7 @@
 "use strict";
 (function() {
   const CORSANYWHERE = "https://cors-anywhere.herokuapp.com";
-  const OOCITIES = "https://www.oocities.org";
+  const OOCITIES = "www.oocities.org";
 
   let hoodSelector = document.getElementById("neighborhood-select");
   hoodSelector.addEventListener("change", changeNeighborhoods);
@@ -13,17 +13,19 @@
   function changeNeighborhoods() {
     let neighborhood = document.getElementById("neighborhood-select");
     neighborhood = neighborhood.value;
+    let siteList = document.getElementById("site-list");
+    siteList.innerHTML = "";
+    siteList.textContent = "Getting site list...";
     
     let xhr = new XMLHttpRequest();
     xhr.onload = function() {
+      siteList.innerHTML = "";
       let html = this.responseXML;
       let links = extractLinks(html).filter(linksToSite);
-      let siteList = document.getElementById("site-list");
-      siteList.innerHTML = "";
       for (let link of links) {
         let site = document.createElement("a");
         site.textContent = link.textContent;
-        site.href = `${OOCITIES}/${neighborhood}/${link.getAttribute("href")}`;
+        site.href = `https://${OOCITIES}/${neighborhood}/${link.getAttribute("href")}`;
         site.target = "archive-display";
         let listItem = document.createElement("li");
         listItem.appendChild(site);
