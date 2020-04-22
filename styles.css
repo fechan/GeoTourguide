@@ -11,8 +11,7 @@ nav {
 }
 
 h1 {
-  text-align: center;
-  margin: 0.4em;
+  margin: .2em;
   margin-bottom: 0;
 }
 
@@ -30,6 +29,10 @@ iframe {
   height: 100vh;
   margin: 0;
   border: none;
+}
+
+#app-title p {
+  margin-top: 0;
 }
 
 .modal-hidden {
@@ -52,6 +55,10 @@ iframe {
   width: 80%;
   background-color: white;
   opacity: 1;
+}
+
+#app-title {
+  text-align: center;
 }
 
 #show-info {
