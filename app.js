@@ -3,6 +3,8 @@
   const CORSANYWHERE = "https://cors-anywhere.herokuapp.com";
   const OOCITIES = "www.oocities.org";
 
+  let hoodCache = {};
+
   let hoodSelector = document.getElementById("neighborhood-select");
   hoodSelector.addEventListener("change", changeNeighborhoods);
   changeNeighborhoods();
@@ -17,24 +19,21 @@
     siteList.innerHTML = "";
     siteList.textContent = "Getting site list...";
     
-    let xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-      siteList.innerHTML = "";
-      let html = this.responseXML;
-      let links = extractLinks(html).filter(linksToSite);
-      for (let link of links) {
-        let site = document.createElement("a");
-        site.textContent = link.textContent;
-        site.href = `https://${OOCITIES}/${neighborhood}/${link.getAttribute("href")}`;
-        site.target = "archive-display";
-        let listItem = document.createElement("li");
-        listItem.appendChild(site);
-        siteList.append(listItem);
+    if (hoodCache[neighborhood] === undefined) {
+      let xhr = new XMLHttpRequest();
+      xhr.onload = function() {
+        siteList.innerHTML = "";
+        let html = this.responseXML;
+        hoodCache[neighborhood] = extractLinks(html).filter(linksToSite);
+        createSiteList(hoodCache[neighborhood], neighborhood);
       }
+      xhr.open("GET", `${CORSANYWHERE}/${OOCITIES}/${neighborhood}`);
+      xhr.responseType = "document";
+      xhr.send();
+    } else {
+      siteList.innerHTML = "";
+      createSiteList(hoodCache[neighborhood], neighborhood);
     }
-    xhr.open("GET", `${CORSANYWHERE}/${OOCITIES}/${neighborhood}`);
-    xhr.responseType = "document";
-    xhr.send();
   }
 
   /**
@@ -55,5 +54,23 @@
   function linksToSite(link) {
     //this will break if oocities changes, which is why it's its own function
     return link.href.includes(link.textContent);
+  }
+
+  /**
+   * Updates the site list with links to sites from an array
+   * @param {Array} links array of <a> elements
+   * @param {String} neighborhood neighborhood that the links belong to
+   */
+  function createSiteList(links, neighborhood) {
+    let siteList = document.getElementById("site-list");
+    for (let link of links) {
+      let site = document.createElement("a");
+      site.textContent = link.textContent;
+      site.href = `https://${OOCITIES}/${neighborhood}/${link.getAttribute("href")}`;
+      site.target = "archive-display";
+      let listItem = document.createElement("li");
+      listItem.appendChild(site);
+      siteList.append(listItem);
+    }
   }
 })();
