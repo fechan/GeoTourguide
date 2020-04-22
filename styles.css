@@ -2,6 +2,7 @@ body {
   display: flex;
   margin: 0;
   overflow: hidden;
+  font: sans-serif;
 }
 
 nav {
