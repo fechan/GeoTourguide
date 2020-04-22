@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  margin: 0;
+  overflow: hidden;
+}
+
+nav {
+  width: 25%;
+  padding: 0.5em;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+select {
+  width: 100%;
+}
+
+iframe {
+  width: 805px;
+  height: 100vh;
+  margin: 0;
+  border: none;
+}
