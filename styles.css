@@ -8,6 +8,16 @@ nav {
   width: 25%;
   padding: 0.5em;
   height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin: 0.4em;
+  margin-bottom: 0;
+}
+
+ul {
+  height: 100%;
   overflow-y: scroll;
 }
 
@@ -20,4 +30,30 @@ iframe {
   height: 100vh;
   margin: 0;
   border: none;
+}
+
+.modal-hidden {
+  display: none;
+}
+
+.modal-shown {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  padding: 2em;
+  width: 80%;
+  background-color: white;
+  opacity: 1;
+}
+
+#show-info {
+  text-decoration: none;
 }

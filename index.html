@@ -3,10 +3,34 @@
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta charset="utf-8"/>
-    <title>Geotourguide - Geocities archive explorer</title>
+    <title>GeoTourguide - Geocities archive explorer</title>
   </head>
   <body>
+    <div id="info-modal" class="modal-hidden">
+      <div class="modal-content">
+        <h1>About GeoTourguide</h1>
+        <p>
+          GeoTourguide helps you explore archived pages that were originally hosted by the defunct
+          web hosting service, GeoCities. You can select a neighborhood with a dropdown, and when the
+          site directory loads, a list of sites will appear for you to click on. Sites will show
+          on the right. The functionality of these sites are not guaranteed, as some are placeholder
+          sites, some were not archived in their entirety, and some were just broken to begin with.
+          The width of displayed sites is limited to 805px in order to prevent their layouts from
+          breaking (all these sites are from an era where low-res 4:3 monitors were king).
+        </p>
+        <p>
+          GeoTourguide relies on <a href="www.oocities.org/">Oocities</a> for its archive content.
+          The sites and site listings come from here. Because of the way GeoTourguide fetches the
+          site lists, requests are routed through the
+          <a href="https://cors-anywhere.herokuapp.com/">CORS Anywhere</a> proxy. If either Oocities
+          or CORS Anywhere are down, the site list will fail to display.
+        </p>
+        <button id="close-info">Close</button>
+      </div>
+    </div>
+    
     <nav>
+      <h1>GeoTourguide <a href="#" id="show-info">🛈</a></h1>
       <select name="neighborhood" id="neighborhood-select">
         <option value="tokyo">Tokyo</option>
         <option value="siliconvalley">Silicon Valley</option>
@@ -15,5 +39,6 @@
     </nav>
     <iframe name="archive-display" id="archive-display"></iframe>
     <script src="app.js"></script>
+    <script src="info.js"></script>
   </body>
 </html>
