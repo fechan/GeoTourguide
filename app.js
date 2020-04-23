@@ -3,13 +3,21 @@
   const CORSANYWHERE = "https://cors-anywhere.herokuapp.com";
   const OOCITIES = "www.oocities.org";
 
-  document.getElementById("archive-display").src = "about:blank";
-  
   let hoodCache = {};
+  let currentSite;
 
-  let hoodSelector = document.getElementById("neighborhood-select");
-  hoodSelector.addEventListener("change", changeNeighborhoods);
+  document.getElementById("neighborhood-select").addEventListener("change", changeNeighborhoods);
+  document.getElementById("get-link").addEventListener("click", showDirectLink);
   setInitialDisplay()
+
+  /**
+   * Opens a prompt containing a link to the current neighborhood and site
+   */
+  function showDirectLink() {
+    let currentNeighborhood = document.getElementById("neighborhood-select").value;
+    let params = new URLSearchParams({currentNeighborhood, currentSite});
+    window.prompt("Link to current site:", location.origin + location.pathname + params.toString());
+  }
 
   /**
    * Sets the initial display.
@@ -17,8 +25,9 @@
    * If the URL also has a site set, the site displayer will show that site
    */
   function setInitialDisplay () {
+    document.getElementById("archive-display").src = "about:blank";
+
     let url = new URL(document.URL);
-    
     //only sets value from url if it exists as an option
     let neighborhood = url.searchParams.get("neighborhood");
     if (neighborhood) {
@@ -30,6 +39,7 @@
         if (site) {
           let display = document.getElementById("archive-display");
           display.src = `https://${OOCITIES}/${neighborhood}/${site}`;
+          currentSite = site;
         }
       }
     }
@@ -99,6 +109,7 @@
       let site = document.createElement("a");
       site.textContent = link.textContent;
       site.href = `https://${OOCITIES}/${neighborhood}/${link.getAttribute("href")}`;
+      site.addEventListener("click", () => currentSite = link.getAttribute("href"));
       site.target = "archive-display";
       let listItem = document.createElement("li");
       listItem.appendChild(site);
