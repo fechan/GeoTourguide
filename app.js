@@ -4,20 +4,9 @@
   const OOCITIES = "www.oocities.org";
 
   let hoodCache = {};
-  let currentSite;
 
   document.getElementById("neighborhood-select").addEventListener("change", changeNeighborhoods);
-  document.getElementById("get-link").addEventListener("click", showDirectLink);
   setInitialDisplay();
-
-  /**
-   * Opens a prompt containing a link to the current neighborhood and site
-   */
-  function showDirectLink() {
-    let currentNeighborhood = document.getElementById("neighborhood-select").value;
-    let params = new URLSearchParams({currentNeighborhood, currentSite});
-    window.prompt("Link to current site:", location.origin + location.pathname + params.toString());
-  }
 
   /**
    * Sets the initial display.
@@ -39,7 +28,6 @@
         if (site) {
           let display = document.getElementById("archive-display");
           display.src = `https://${OOCITIES}/${neighborhood}/${site}`;
-          currentSite = site;
         }
       }
     }
@@ -109,11 +97,22 @@
       let site = document.createElement("a");
       site.textContent = link.textContent;
       site.href = `https://${OOCITIES}/${neighborhood}/${link.getAttribute("href")}`;
-      site.addEventListener("click", () => currentSite = link.getAttribute("href"));
+      site.addEventListener("click", () => clickSite(link));
       site.target = "archive-display";
       let listItem = document.createElement("li");
       listItem.appendChild(site);
       siteList.append(listItem);
     }
+  }
+
+  /**
+   * Updates URL bar and sets current site
+   * @param {HTMLElement} link <a> directing to a site
+   */
+  function clickSite(link) {
+    let site = link.getAttribute("href");
+    let neighborhood = document.getElementById("neighborhood-select").value;
+    let params = new URLSearchParams({"neighborhood": neighborhood, "site": site});
+    window.history.replaceState({}, '', `${location.pathname}?${params}`);
   }
 })();
