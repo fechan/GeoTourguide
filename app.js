@@ -8,7 +8,7 @@
 
   document.getElementById("neighborhood-select").addEventListener("change", changeNeighborhoods);
   document.getElementById("get-link").addEventListener("click", showDirectLink);
-  setInitialDisplay()
+  setInitialDisplay();
 
   /**
    * Opens a prompt containing a link to the current neighborhood and site
