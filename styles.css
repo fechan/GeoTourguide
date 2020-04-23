@@ -62,6 +62,10 @@ iframe {
   text-align: center;
 }
 
-#show-info {
+#show-info, #get-link {
   text-decoration: none;
+}
+
+#get-link:visited {
+  color: blue;
 }
