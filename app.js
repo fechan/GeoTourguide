@@ -3,6 +3,8 @@
   const CORSANYWHERE = "https://cors-anywhere.herokuapp.com";
   const OOCITIES = "www.oocities.org";
 
+  document.getElementById("archive-display").src = "about:blank";
+  
   let hoodCache = {};
 
   let hoodSelector = document.getElementById("neighborhood-select");
