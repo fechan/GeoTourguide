@@ -9,10 +9,35 @@
 
   let hoodSelector = document.getElementById("neighborhood-select");
   hoodSelector.addEventListener("change", changeNeighborhoods);
-  changeNeighborhoods();
+  setInitialDisplay()
 
   /**
-   * Updates the directory of available sites in the nav
+   * Sets the initial display.
+   * If the URL has a neighborhood set, the neighborhood selector will be set to that neighborhood
+   * If the URL also has a site set, the site displayer will show that site
+   */
+  function setInitialDisplay () {
+    let url = new URL(document.URL);
+    
+    //only sets value from url if it exists as an option
+    let neighborhood = url.searchParams.get("neighborhood");
+    if (neighborhood) {
+      let selector = document.getElementById("neighborhood-select");
+      let options = Array.from(selector.options).map(option => option.value);
+      if (options.find(value => value === neighborhood)) { 
+        selector.value = neighborhood;
+        let site = url.searchParams.get("site");
+        if (site) {
+          let display = document.getElementById("archive-display");
+          display.src = `https://${OOCITIES}/${neighborhood}/${site}`;
+        }
+      }
+    }
+    changeNeighborhoods();
+  }
+
+  /**
+   * Updates the directory of available sites in the nav.
    */
   function changeNeighborhoods() {
     let neighborhood = document.getElementById("neighborhood-select");
