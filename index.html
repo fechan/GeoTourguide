@@ -16,8 +16,11 @@
           site directory loads, a list of sites will appear for you to click on. Sites will show
           on the right. The functionality of these sites are not guaranteed, as some are placeholder
           sites, some were not archived in their entirety, and some were just broken to begin with.
-          The width of displayed sites is limited to 805px in order to prevent their layouts from
-          breaking (all these sites are from an era where low-res 4:3 monitors were king).
+        </p>
+        <p>
+          The default viewing width is 805px in order to prevent their layouts from breaking (all
+          these sites are from an era where low-res 4:3 monitors were king), but you can resize it
+          on the bottom right of the viewer.
         </p>
         <p>
           GeoTourguide relies on <a href="http://www.oocities.org/">Oocities</a> for its archives.
@@ -77,7 +80,9 @@
       </select>
       <ul id="site-list"></ul>
     </nav>
-    <iframe name="archive-display" id="archive-display"></iframe>
+    <div id="resizer">
+      <iframe name="archive-display" id="archive-display"></iframe>
+    </div>
     <script src="app.js"></script>
     <script src="info.js"></script>
   </body>
