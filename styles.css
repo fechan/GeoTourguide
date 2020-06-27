@@ -2,27 +2,22 @@ body {
   display: flex;
   margin: 0;
   overflow: hidden;
-  font-family: sans-serif;
 }
 
 nav {
   width: 25%;
-  padding: 0.5em;
   height: 100vh;
-}
-
-h1 {
-  margin: .2em;
-  margin-bottom: 0;
 }
 
 ul {
   height: 100%;
   overflow-y: scroll;
+  margin: 0.5em;
 }
 
 select {
   width: 100%;
+  font-size: 1em;
 }
 
 iframe {
@@ -32,8 +27,13 @@ iframe {
   flex-grow: 1;
 }
 
-#app-title p {
-  margin-top: 0;
+.app-title {
+  font-size: 2em;
+  padding: 0;
+}
+
+.list-group-item {
+  padding: .5em;
 }
 
 .modal-hidden {
@@ -51,16 +51,12 @@ iframe {
   justify-content: center;
 }
 
-.modal-content {
+/*.modal-content {
   padding: 2em;
   width: 80%;
   background-color: white;
   opacity: 1;
-}
-
-#app-title {
-  text-align: center;
-}
+}*/
 
 #show-info {
   text-decoration: none;

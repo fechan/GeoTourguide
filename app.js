@@ -100,6 +100,7 @@
       site.addEventListener("click", () => clickSite(link));
       site.target = "archive-display";
       let listItem = document.createElement("li");
+      listItem.classList.add("list-group-item");
       listItem.appendChild(site);
       siteList.append(listItem);
     }

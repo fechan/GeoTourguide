@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous">
+    <!-- Pixel CSS -->
+    <link type="text/css" rel="stylesheet" href="win95-ui-toolkit/css/pixel.css">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -37,48 +44,53 @@
       </div>
     </div>
     
-    <nav>
-      <div id="app-title">
-        <h1>GeoTourguide <a href="#" id="show-info">🛈</a></h1>
-        <p>GeoCities archive explorer by <a href="https://fechan.github.io/">Frederick Chan</a></p>
+    <nav class="card card-tertiary">
+      <div class="card-header">
+        <span class="app-title">
+          GeoTourguide
+          <button id="show-info" class="btn btn-sm btn-primary float-right font-weight-bold">info</button>
+        </span>
       </div>
-      <select name="neighborhood" id="neighborhood-select">
-        <option value="area51">Area 51 - Sci-fi & fantasy</option>
-        <option value="athens">Athens - Teaching, education, philosophy, reading, writing</option>
-        <option value="augusta">Augusta - Golf</option>
-        <option value="baja">Baja - Off-road & adventure travel</option>
-        <option value="bourbonstreet">
-          Bourbon Street - Jazz, New Orleans, Cajun food, Southern US Topics
-        </option>
-        <option value="capecanaveral">
-          Cape Canaveral -  Science, mathematics, aviation, technology, engineering
-        </option>
-        <option value="capitolhill">Capitol Hill - Government & politics</option>
-        <option value="collegepark">College Park - University life</option>
-        <option value="colosseum">Colosseum - Athletics & sports</option>
-        <option value="enchantedforest">Enchanted Forest - Topics of interest to children</option>
-        <option value="hollywood">Hollywood - Films & actors</option>
-        <option value="motorcity">Motor City - Automobiles & racing</option>
-        <option value="napavalley">Napa Valley - Wine</option>
-        <option value="nashville">Nashville - Country music</option>
-        <option value="petsburgh">Petsburgh - Pets</option>
-        <option value="pipeline">Pipeline - Extreme sports</option>
-        <option value="rainforest">Rainforest - conservation</option>
-        <option value="researchtriangle">Research Triangle - R&D & tech</option>
-        <option value="siliconvalley">
-          Silicon Valley - Computers, programming, hardware, technology
-        </option>
-        <option value="soho">SoHo - Art & writing</option>
-        <option value="sunsetstrip">Sunset Strip - Blues, punk rock & rock n' roll, grunge</option>
-        <option value="timessquare">Times Square - Computer & video games</option>
-        <option value="televisioncity">Television City - TV</option>
-        <option value="tokyo">Tokyo - Far East</option>
-        <option value="vienna">Vienna - Ballet, opera, classical music</option>
-        <option value="yosemite">
-          Yosemite - Outdoor sports/recreation, climbing, skiing, hiking, rafting
-        </option>
-      </select>
-      <ul id="site-list"></ul>
+      <div class="card-body">
+        <p>GeoCities archive explorer by <a href="https://fechan.github.io/">Frederick Chan</a></p>
+        <select name="neighborhood" id="neighborhood-select">
+          <option value="area51">Area 51 - Sci-fi & fantasy</option>
+          <option value="athens">Athens - Teaching, education, philosophy, reading, writing</option>
+          <option value="augusta">Augusta - Golf</option>
+          <option value="baja">Baja - Off-road & adventure travel</option>
+          <option value="bourbonstreet">
+            Bourbon Street - Jazz, New Orleans, Cajun food, Southern US Topics
+          </option>
+          <option value="capecanaveral">
+            Cape Canaveral -  Science, mathematics, aviation, technology, engineering
+          </option>
+          <option value="capitolhill">Capitol Hill - Government & politics</option>
+          <option value="collegepark">College Park - University life</option>
+          <option value="colosseum">Colosseum - Athletics & sports</option>
+          <option value="enchantedforest">Enchanted Forest - Topics of interest to children</option>
+          <option value="hollywood">Hollywood - Films & actors</option>
+          <option value="motorcity">Motor City - Automobiles & racing</option>
+          <option value="napavalley">Napa Valley - Wine</option>
+          <option value="nashville">Nashville - Country music</option>
+          <option value="petsburgh">Petsburgh - Pets</option>
+          <option value="pipeline">Pipeline - Extreme sports</option>
+          <option value="rainforest">Rainforest - conservation</option>
+          <option value="researchtriangle">Research Triangle - R&D & tech</option>
+          <option value="siliconvalley">
+            Silicon Valley - Computers, programming, hardware, technology
+          </option>
+          <option value="soho">SoHo - Art & writing</option>
+          <option value="sunsetstrip">Sunset Strip - Blues, punk rock & rock n' roll, grunge</option>
+          <option value="timessquare">Times Square - Computer & video games</option>
+          <option value="televisioncity">Television City - TV</option>
+          <option value="tokyo">Tokyo - Far East</option>
+          <option value="vienna">Vienna - Ballet, opera, classical music</option>
+          <option value="yosemite">
+            Yosemite - Outdoor sports/recreation, climbing, skiing, hiking, rafting
+          </option>
+        </select>
+      </div>
+      <ul id="site-list" class="bg-white list-group"></ul>
     </nav>
     <div id="resizer">
       <iframe name="archive-display" id="archive-display"
