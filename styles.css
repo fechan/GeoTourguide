@@ -4,8 +4,12 @@ body {
   overflow: hidden;
 }
 
+p {
+  font-size: 8px;
+}
+
 nav {
-  width: 25%;
+  width: 20%;
   height: 100vh;
 }
 
@@ -17,7 +21,7 @@ ul {
 
 select {
   width: 100%;
-  font-size: 1em;
+  font-size: 16px;
 }
 
 iframe {
@@ -28,12 +32,13 @@ iframe {
 }
 
 .app-title {
-  font-size: 2em;
+  font-size: 16px;
   padding: 0;
 }
 
 .list-group-item {
   padding: .5em;
+  font-size: 8px;
 }
 
 .modal-hidden {
