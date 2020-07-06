@@ -14,33 +14,37 @@
     <title>GeoTourguide - GeoCities archive explorer</title>
   </head>
   <body>
-    <div id="info-modal" class="modal-hidden">
-      <div class="modal-content">
-        <h1>About GeoTourguide</h1>
-        <p>
-          GeoTourguide helps you explore archived pages that were originally hosted by the defunct
-          web hosting service, GeoCities. You can select a neighborhood with a dropdown, and when the
-          site directory loads, a list of sites will appear for you to click on. Sites will show
-          on the right. The functionality of these sites are not guaranteed, as some are placeholder
-          sites, some were not archived in their entirety, and some were just broken to begin with.
-        </p>
-        <p>
-          The default viewing width is 805px in order to prevent their layouts from breaking (all
-          these sites are from an era where low-res 4:3 monitors were king), but you can resize it
-          on the bottom right of the viewer.
-        </p>
-        <p>
-          GeoTourguide relies on <a href="http://www.oocities.org/">Oocities</a> for its archives.
-          The sites and site listings come from here. Because of the way GeoTourguide fetches the
-          site lists, requests are routed through the
-          <a href="https://cors-anywhere.herokuapp.com/">CORS Anywhere</a> proxy. If either Oocities
-          or CORS Anywhere are down, the site list will fail to display.
-        </p>
-        <p>
-          This app is best viewed in <s>Internet Explorer</s> <s>Netscape Navigator</s> a modern
-          browser.
-        </p>
-        <button id="close-info">Close</button>
+    <div id="info-modal" class="modal-hidden col-12">
+      <div class="card card-tertiary">
+        <div class="card-header">
+          <span>About GeoTourguide</span>
+        </div>
+        <div class="card-body">
+          <p>
+            GeoTourguide helps you explore archived pages that were originally hosted by the defunct
+            web hosting service, GeoCities. You can select a neighborhood with a dropdown, and when the
+            site directory loads, a list of sites will appear for you to click on. Sites will show
+            on the right. The functionality of these sites are not guaranteed, as some are placeholder
+            sites, some were not archived in their entirety, and some were just broken to begin with.
+          </p>
+          <p>
+            The default viewing width is 805px in order to prevent their layouts from breaking (all
+            these sites are from an era where low-res 4:3 monitors were king), but you can resize it
+            on the bottom right of the viewer.
+          </p>
+          <p>
+            GeoTourguide relies on <a href="http://www.oocities.org/">Oocities</a> for its archives.
+            The sites and site listings come from here. Because of the way GeoTourguide fetches the
+            site lists, requests are routed through the
+            <a href="https://cors-anywhere.herokuapp.com/">CORS Anywhere</a> proxy. If either Oocities
+            or CORS Anywhere are down, the site list will fail to display.
+          </p>
+          <p>
+            This app is best viewed in <s>Internet Explorer</s> <s>Netscape Navigator</s> a modern
+            browser.
+          </p>
+          <button id="close-info" class="btn btn-sm btn-primary">Close</button>
+        </div>
       </div>
     </div>
     
@@ -52,7 +56,10 @@
         </span>
       </div>
       <div class="card-body">
-        <p>GeoCities archive explorer by <a href="https://fechan.github.io/">Frederick Chan</a></p>
+        <p>
+          GeoCities archive explorer by <a href="https://fechan.github.io/">Frederick Chan</a>.
+          Archive content from <a href="http://www.oocities.org/">Oocities</a>.
+        </p>
         <select name="neighborhood" id="neighborhood-select">
           <option value="area51">Area 51 - Sci-fi & fantasy</option>
           <option value="athens">Athens - Teaching, education, philosophy, reading, writing</option>
@@ -92,7 +99,7 @@
       </div>
       <ul id="site-list" class="bg-white list-group"></ul>
     </nav>
-    <div id="resizer">
+    <div id="resizer" class="card card-tertiary">
       <iframe name="archive-display" id="archive-display"
         sandbox="allow-scripts allow-popups allow-modals">
       </iframe>
