@@ -4,6 +4,14 @@ body {
   overflow: hidden;
 }
 
+a {
+  color: blue;
+}
+
+a:visited {
+  color: darkviolet;
+}
+
 p {
   font-size: 8px;
 }
