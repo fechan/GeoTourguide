@@ -41,6 +41,7 @@ iframe {
   margin: 0;
   border: none;
   flex-grow: 1;
+  background-color: white; /* sites in iframe have transparent bg if not set; default to white */
 }
 
 .app-title {
