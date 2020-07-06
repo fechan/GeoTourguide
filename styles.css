@@ -2,6 +2,10 @@ body {
   display: flex;
   margin: 0;
   overflow: hidden;
+  background-color: #007c78;
+  background-image: url(icons.png);
+  background-position: right top;
+  background-repeat: no-repeat;
 }
 
 a {
