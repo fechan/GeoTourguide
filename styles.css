@@ -64,12 +64,11 @@ iframe {
   justify-content: center;
 }
 
-/*.modal-content {
-  padding: 2em;
+.modal-content {
   width: 80%;
   background-color: white;
   opacity: 1;
-}*/
+}
 
 #show-info {
   text-decoration: none;
