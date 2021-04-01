@@ -14,6 +14,32 @@
     <title>GeoTourguide - GeoCities archive explorer</title>
   </head>
   <body>
+    <div id="corsanywhere-modal" class="modal-shown col-12">
+      <div class="card card-tertiary">
+        <div class="card-header">
+          <span>CORS Anywhere</span>
+        </div>
+        <div class="card-body">
+          <p>In order to access Oocities' GeoCities archive from a third party web app (like this
+            one), we have to use a proxy called CORS Anywhere. When I developed this app, I used the
+            CORS Anywhere demo server because I didn't want to pay to host my own proxy. Starting
+            <a href="https://cors-anywhere.herokuapp.com/corsdemo">January 2021</a>, the CORS Anywhere
+            demo server requires you to click the "Request temporary access to the demo server" button
+            on <a href="https://cors-anywhere.herokuapp.com/corsdemo">this page</a> in order for this
+            web app to work.
+          </p>
+          <p>
+            <strong>
+              tl;dr Starting January 2021, for this app to work, you have to go to
+              <a href="https://cors-anywhere.herokuapp.com/corsdemo">this web page</a> and click
+                "Request temporary access to the demo server."
+            </strong>
+          </p>
+          <button id="close-corsanywhere" class="btn btn-sm btn-primary">Close</button>
+        </div>
+      </div>
+    </div>
+
     <div id="info-modal" class="modal-hidden col-12">
       <div class="card card-tertiary">
         <div class="card-header">
