@@ -74,6 +74,10 @@ iframe {
   opacity: 1;
 }
 
+#info-modal > div {
+  width: 50%;
+}
+
 #show-info {
   text-decoration: none;
 }
